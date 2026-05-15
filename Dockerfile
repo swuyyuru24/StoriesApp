@@ -22,7 +22,9 @@ COPY backend/ backend/
 COPY accounts/ accounts/
 COPY stories/ stories/
 
-COPY --from=frontend-build /frontend/dist/ staticfiles/
+# Copy React build — index.html goes to templates, assets go to staticfiles
+COPY --from=frontend-build /frontend/dist/index.html react_build/index.html
+COPY --from=frontend-build /frontend/dist/static/ staticfiles/static/
 
 RUN python manage.py collectstatic --noinput
 
