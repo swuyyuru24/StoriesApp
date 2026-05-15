@@ -1,0 +1,664 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #ff6122;
+  --primary-dark: #e55520;
+  --bg: #0a0a0f;
+  --bg-card: #14141f;
+  --bg-elevated: #1c1c2e;
+  --text: #e8e8ed;
+  --text-muted: #8888a0;
+  --border: #2a2a3e;
+  --danger: #e53e3e;
+  --success: #38a169;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.85;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+}
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--text);
+}
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+}
+.btn-lg {
+  padding: 0.8rem 2rem;
+  font-size: 1.05rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+.btn-ghost:hover {
+  color: var(--text);
+}
+.btn-active {
+  background: var(--primary);
+  color: white;
+}
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+.btn-danger:hover {
+  opacity: 0.85;
+}
+
+/* ===== Hero ===== */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--primary), #ff9966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ===== Sections ===== */
+.section {
+  margin-bottom: 3rem;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ===== Story Grid ===== */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ===== Story Card ===== */
+.story-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.story-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+.story-card-cover {
+  height: 160px;
+  overflow: hidden;
+}
+.story-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg));
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+.story-card-placeholder.large {
+  height: 300px;
+  font-size: 5rem;
+}
+.story-card-body {
+  padding: 1rem;
+}
+.story-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.story-card-author {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.story-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+.story-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.story-card-genre {
+  display: inline-block;
+  background: var(--bg-elevated);
+  color: var(--primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ===== Auth Pages ===== */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+}
+.auth-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+.auth-form h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+.auth-form input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.auth-form .btn {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.auth-form p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.error-msg {
+  background: rgba(229, 62, 62, 0.15);
+  color: var(--danger);
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Browse ===== */
+.browse-page h1 {
+  margin-bottom: 1.5rem;
+}
+.search-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.search-bar input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.genre-tag {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.genre-tag:hover, .genre-tag.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* ===== Story Detail ===== */
+.story-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.story-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.story-cover-large {
+  flex-shrink: 0;
+  width: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.story-cover-large img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.story-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+.story-author {
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+.story-description {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.story-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.tag {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+.story-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ===== Chapters List ===== */
+.chapters-list h2 {
+  margin-bottom: 1rem;
+}
+.chapter-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+.chapter-item:hover {
+  border-color: var(--primary);
+}
+.chapter-num {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 50px;
+}
+.chapter-title {
+  flex: 1;
+}
+.chapter-reads {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ===== Reader ===== */
+.reader {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.reader-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.reader-header h1 {
+  font-size: 1.8rem;
+  margin: 0.5rem 0 0.25rem;
+}
+.back-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.chapter-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.reader-content {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+}
+.reader-content p {
+  margin-bottom: 1rem;
+}
+.reader-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.end-msg {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ===== Write / Edit Forms ===== */
+.write-page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.write-page h1 {
+  margin-bottom: 1.5rem;
+}
+.write-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.write-form input,
+.write-form textarea,
+.write-form select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.write-form input:focus,
+.write-form textarea:focus,
+.write-form select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.chapter-editor {
+  min-height: 400px;
+  line-height: 1.8;
+}
+
+/* ===== Profile ===== */
+.profile-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.profile-info h1 {
+  margin-bottom: 0.25rem;
+}
+.profile-bio {
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.profile-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.profile-stats strong {
+  color: var(--text);
+}
+
+/* ===== Comments ===== */
+.comments-section h3 {
+  margin-bottom: 1rem;
+}
+.comment-form {
+  margin-bottom: 1.5rem;
+}
+.comment-form textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  resize: vertical;
+}
+.comment-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.comment {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.comment strong {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+.comment p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+.comment-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ===== Utilities ===== */
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .story-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .story-actions {
+    justify-content: center;
+  }
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    gap: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
